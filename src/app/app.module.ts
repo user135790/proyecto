@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormloginComponent } from './formlogin/formlogin.component';
@@ -13,7 +12,8 @@ import {ButtonModule} from 'primeng/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TableModule} from 'primeng/table'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TabViewModule} from 'primeng/tabview'
+import {TabViewModule} from 'primeng/tabview';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import {TabViewModule} from 'primeng/tabview'
     ReactiveFormsModule,
     TableModule,
     BrowserAnimationsModule,
-    TabViewModule
+    TabViewModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

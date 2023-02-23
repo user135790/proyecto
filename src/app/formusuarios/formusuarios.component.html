@@ -8,14 +8,14 @@
         <span class="p-float-label field">
             <input id="float-input" type="password" pPassword formControlName="contrasena" required> 
             <label for="float-input">Contraseña</label>
-            <input id="float-input" type="password" pPassword formControlName="confirmarContrasena" placeholder="Confirmar Contraseña" required> 
+            <input id="float-input" type="password" pPassword placeholder="Confirmar Contraseña" required> 
         </span>
         <span class="p-float-label field">
-            <input id="float-input" type="email" pInputText formControlName="correo" required> 
+            <input id="float-input" type="email" pInputText formControlName="correoElectronico" required> 
             <label for="float-input">Correo Electrónico</label>
         </span>
         <span class="p-float-label field">
-            <p-dropdown [options]="tipoPerfil" id="float-input" type="" formControlName="tipoPerfil"></p-dropdown> 
+            <p-dropdown [options]="tipoPerfil" id="float-input" type="" formControlName="perfil"></p-dropdown> 
             <label for="float-input">Perfil</label>
         </span>
         <span class="field">
