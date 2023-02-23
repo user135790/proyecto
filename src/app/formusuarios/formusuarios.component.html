@@ -1,1 +1,25 @@
-<p>formusuarios works!</p>
+<div class="form-login content-section">
+    <form [formGroup]="formUsuarios" (submit)="enviar()">
+        <h5>Iniciar Sesion</h5>
+        <span class="p-float-label field">
+            <input id="float-input" type="text" pInputText formControlName="nombre" required> 
+            <label for="float-input">Nombre de usuario</label>
+        </span>
+        <span class="p-float-label field">
+            <input id="float-input" type="password" pPassword formControlName="contrasena" required> 
+            <label for="float-input">Contraseña</label>
+            <input id="float-input" type="password" pPassword formControlName="confirmarContrasena" placeholder="Confirmar Contraseña" required> 
+        </span>
+        <span class="p-float-label field">
+            <input id="float-input" type="email" pInputText formControlName="correo" required> 
+            <label for="float-input">Correo Electrónico</label>
+        </span>
+        <span class="p-float-label field">
+            <p-dropdown id="float-input" type="" formControlName="tipoPerfil"></p-dropdown> 
+            <label for="float-input">Perfil</label>
+        </span>
+        <span class="field">
+            <button pButton type="submit" class="p-button-secondary">Enviar</button>
+        </span>
+    </form>
+</div>

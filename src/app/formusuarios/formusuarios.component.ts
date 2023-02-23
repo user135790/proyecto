@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-formusuarios',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class FormusuariosComponent {
 
+  constructor(private form:FormBuilder){}
+
+  formUsuarios=this.form.group({
+    nombre: [],
+    contrasena: [],
+    confirmarContrasena: [],
+    correo:[],
+    tipoPerfil: []
+  });
+
+  enviar(){
+    console.log(this.formUsuarios.value);
+  }
 }
