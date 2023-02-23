@@ -1,1 +1,16 @@
-<p>formlogin works!</p>
+<div class="form-login content-section">
+    <form [formGroup]="formSesion" (submit)="enviar()">
+        <h5>Iniciar Sesion</h5>
+        <span class="p-float-label field">
+            <input id="float-input" type="text" pInputText formControlName="nombre"> 
+            <label for="float-input">Nombre de usuario</label>
+        </span>
+        <span class="p-float-label field">
+            <input id="float-input" type="password" pPassword formControlName="contrasena"> 
+            <label for="float-input">Contraseña</label>
+        </span>
+        <span class="field">
+            <button pButton type="submit" class="p-button-secondary">Enviar</button>
+        </span>
+    </form>
+</div>

@@ -6,17 +6,28 @@ import { AppComponent } from './app.component';
 import { FormloginComponent } from './formlogin/formlogin.component';
 import { FormusuariosComponent } from './formusuarios/formusuarios.component';
 import { MostrardatosComponent } from './mostrardatos/mostrardatos.component';
+import { DropdownModule} from 'primeng/dropdown';
+import {InputTextModule} from 'primeng/inputtext';
+import {PasswordModule} from 'primeng/password';
+import {ButtonModule} from 'primeng/button';
+import {ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
     AppComponent,
     FormloginComponent,
     FormusuariosComponent,
-    MostrardatosComponent
+    MostrardatosComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DropdownModule,
+    PasswordModule,
+    InputTextModule,
+    ButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

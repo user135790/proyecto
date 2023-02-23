@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-formlogin',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class FormloginComponent {
 
+  constructor(private form:FormBuilder){}
+
+  formSesion=this.form.group({
+    nombre: [],
+    contrasena: []
+  });
+
+  enviar(){
+    console.log(this.formSesion.value)
+  }
 }
