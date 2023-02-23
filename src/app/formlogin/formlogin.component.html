@@ -1,4 +1,5 @@
-<div class="form-login content-section">
+
+<div class="form-login content-section" *ngIf="sesionIniciada==false">
     <form [formGroup]="formSesion" (submit)="enviar()">
         <h5>Iniciar Sesion</h5>
         <span class="p-float-label field">
@@ -14,3 +15,11 @@
         </span>
     </form>
 </div>
+<p-tabView *ngIf="sesionIniciada==true">
+    <p-tabPanel header="LISTA DE USUARIOS">
+        <app-mostrardatos></app-mostrardatos>
+    </p-tabPanel>
+    <p-tabPanel header="CREAR USUARIO">
+        <app-formusuarios></app-formusuarios>
+    </p-tabPanel>
+</p-tabView>

@@ -13,6 +13,7 @@ import {ButtonModule} from 'primeng/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TableModule} from 'primeng/table'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TabViewModule} from 'primeng/tabview'
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ButtonModule,
     ReactiveFormsModule,
     TableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

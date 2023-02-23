@@ -14,8 +14,8 @@ export class FormloginComponent {
     nombre: [],
     contrasena: []
   });
-
+  sesionIniciada=true;
   enviar(){
-    console.log(this.formSesion.value)
+    console.log(this.formSesion.value);
   }
 }
