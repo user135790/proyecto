@@ -10,7 +10,10 @@ import { DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {ButtonModule} from 'primeng/button';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule} from '@angular/forms';
+import {TableModule} from 'primeng/table'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import {ReactiveFormsModule} from '@angular/forms'
     PasswordModule,
     InputTextModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

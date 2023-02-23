@@ -1,6 +1,6 @@
 <div class="form-login content-section">
     <form [formGroup]="formUsuarios" (submit)="enviar()">
-        <h5>Iniciar Sesion</h5>
+        <h5>Crear Usuarios</h5>
         <span class="p-float-label field">
             <input id="float-input" type="text" pInputText formControlName="nombre" required> 
             <label for="float-input">Nombre de usuario</label>
@@ -15,7 +15,7 @@
             <label for="float-input">Correo Electrónico</label>
         </span>
         <span class="p-float-label field">
-            <p-dropdown id="float-input" type="" formControlName="tipoPerfil"></p-dropdown> 
+            <p-dropdown [options]="tipoPerfil" id="float-input" type="" formControlName="tipoPerfil"></p-dropdown> 
             <label for="float-input">Perfil</label>
         </span>
         <span class="field">

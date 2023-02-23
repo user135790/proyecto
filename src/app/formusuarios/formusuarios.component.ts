@@ -18,6 +18,8 @@ export class FormusuariosComponent {
     tipoPerfil: []
   });
 
+  tipoPerfil=["Administrador","Invitado"];
+
   enviar(){
     console.log(this.formUsuarios.value);
   }
