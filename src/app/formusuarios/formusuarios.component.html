@@ -1,21 +1,21 @@
 <div class="form-login content-section">
     <form [formGroup]="formUsuarios" (submit)="enviar()">
-        <h5>Crear Usuarios</h5>
+        <h5><i class="pi pi-user-plus" style="font-size: 4rem"></i></h5>
         <span class="p-float-label field">
             <input id="float-input" type="text" pInputText formControlName="nombre" required> 
             <label for="float-input">Nombre de usuario</label>
         </span>
-        <span class="p-float-label field">
-            <input id="float-input" type="password" pPassword formControlName="contrasena" required> 
+        <span class="p-float-label password">
+            <input id="float-input" class="password" type="password" pPassword formControlName="contrasena" required> 
             <label for="float-input">Contraseña</label>
-            <input id="float-input" type="password" pPassword placeholder="Confirmar Contraseña" required> 
+            <input id="float-input" class="password" type="password" pPassword placeholder="Confirmar Contraseña" required> 
         </span>
         <span class="p-float-label field">
             <input id="float-input" type="email" pInputText formControlName="correoElectronico" required> 
             <label for="float-input">Correo Electrónico</label>
         </span>
-        <span class="p-float-label field">
-            <p-dropdown [options]="tipoPerfil" id="float-input" type="" formControlName="perfil"></p-dropdown> 
+        <span class="p-float-label field span-perfil">
+            <p-dropdown [options]="tipoPerfil" class="perfil" id="float-input" type="" formControlName="perfil"></p-dropdown> 
             <label for="float-input">Perfil</label>
         </span>
         <span class="field">

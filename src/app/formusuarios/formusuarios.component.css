@@ -1,3 +1,37 @@
-.field{
+.content-section{
+    width: 940px;
+    margin: 0 auto;
+    text-align: center;
+}
+.field, .password{
+    margin: 30px auto;
+    width: 50%;
+}
+
+.password .password{
+    width: 50%;
+}
+
+.span-perfil .perfil .p-dropdown{
+    width: 100%;
+}
+
+.field h5{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.field h5 i{
+    font-size: 6rem;
+    padding: 50px;
+    border-radius: 100px;
+    background: lightgray;
+}
+
+.field button{
     margin-top: 30px;
+}
+
+.field .p-inputtext{
+    width: 100%;
 }

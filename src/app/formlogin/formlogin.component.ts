@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Observable, from } from 'rxjs';
-import { Usuario } from 'src/model/usuario';
+import { TipoPerfil, Usuario } from 'src/model/usuario';
 
 @Component({
   selector: 'app-formlogin',
@@ -21,17 +21,17 @@ export class FormloginComponent {
   });
   
   sesionIniciada=false;
+  rol="";
   enviar(){
     const sesion=from(this.http.post(this.url+"login",this.formSesion.value));
     
     sesion.subscribe(
-      (response)=>{
-        console.log(response);
-      },
-      (error)=>{
-        if(error.status==200){
+      (response:any)=>{
+        console.log(response)
+        if(response.perfil == TipoPerfil.ADMIN || response.perfil == TipoPerfil.INVITADO){
           this.sesionIniciada=true;
+          this.rol=response.perfil
         }
-      });
+      })
   }
 }

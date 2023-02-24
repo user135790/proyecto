@@ -1,7 +1,10 @@
 
 <div class="form-login content-section" *ngIf="sesionIniciada==false">
     <form [formGroup]="formSesion" (submit)="enviar()">
-        <h5>Iniciar Sesion</h5>
+        <span class="field">
+            <h5><i class="pi pi-user" style="font-size: 6rem"></i></h5>
+        </span>
+
         <span class="p-float-label field">
             <input id="float-input" type="text" pInputText formControlName="nombre"> 
             <label for="float-input">Nombre de usuario</label>
@@ -11,15 +14,15 @@
             <label for="float-input">Contraseña</label>
         </span>
         <span class="field">
-            <button pButton type="submit" class="p-button-secondary">Enviar</button>
+            <button pButton type="submit" class="p-button-secondary p-button">Ingresar</button>
         </span>
     </form>
 </div>
-<p-tabView *ngIf="sesionIniciada==true">
-    <p-tabPanel header="LISTA DE USUARIOS">
+<p-tabView styleClass="cont-nav" *ngIf="sesionIniciada==true">
+    <p-tabPanel headerStyleClass="nav" header="LISTA DE USUARIOS">
         <app-mostrardatos></app-mostrardatos>
     </p-tabPanel>
-    <p-tabPanel header="CREAR USUARIO">
+    <p-tabPanel headerStyleClass="nav" header="CREAR USUARIO" [disabled]="!(rol=='ADMINISTRADOR')">
         <app-formusuarios></app-formusuarios>
     </p-tabPanel>
 </p-tabView>
