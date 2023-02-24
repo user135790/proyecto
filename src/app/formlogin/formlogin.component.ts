@@ -12,7 +12,8 @@ import { UsuarioServiceService } from '../usuario-service.service';
 })
 export class FormloginComponent {
 
-  constructor(private form:FormBuilder, private http:HttpClient, private uService:UsuarioServiceService){}
+  constructor(private form:FormBuilder, private http:HttpClient, private uService:UsuarioServiceService){
+  }
 
   /*
     Definicion del Formulario
@@ -24,18 +25,24 @@ export class FormloginComponent {
   
   //Variable de control del comportamiento de componentes
   sesionIniciada=false;
-  rol="";
+  rol=localStorage.getItem('sesion');
 
   /*
     Definicion del metodo post para realizar el login
   */
   enviar(){
+    console.log(this.rol);
     const enviar=from(this.uService.login(this.formSesion))
     enviar.subscribe((response:any)=>{ 
       if(response.perfil == TipoPerfil.ADMIN || response.perfil == TipoPerfil.INVITADO){
-        this.sesionIniciada=true;
+        localStorage.setItem('sesion', response.perfil);
         this.rol=response.perfil;
       }
     })
+  }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.rol=localStorage.getItem('sesion');
   }
 }

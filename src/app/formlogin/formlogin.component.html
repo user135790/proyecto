@@ -1,6 +1,6 @@
 
 <div class="container">
-    <div class="form-login content-section" *ngIf="sesionIniciada==false">
+    <div class="form-login content-section" *ngIf="rol === null">
         <form [formGroup]="formSesion" (submit)="enviar()">
             <span class="field">
                 <h5><i class="pi pi-user" style="font-size: 6rem"></i></h5>
@@ -22,12 +22,13 @@
             </span>
         </form>
     </div>
-    <p-tabView *ngIf="sesionIniciada==true">
+    <p-tabView *ngIf="rol !== null">
         <p-tabPanel [headerStyle]="{'width':'50%'}" header="LISTA DE USUARIOS">
             <app-mostrardatos></app-mostrardatos>
         </p-tabPanel>
         <p-tabPanel [headerStyle]="{'width':'50%'}" header="CREAR USUARIO" [disabled]="!(rol=='ADMINISTRADOR')">
             <app-formusuarios></app-formusuarios>
         </p-tabPanel>
+        <button pButton type="button" (click)="cerrarSesion()" class="p-button-secondary p-button">Cerrar Sesion</button>
     </p-tabView>
 </div>
