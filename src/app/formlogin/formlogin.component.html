@@ -25,10 +25,12 @@
     <p-tabView *ngIf="rol !== null">
         <p-tabPanel [headerStyle]="{'width':'50%'}" header="LISTA DE USUARIOS">
             <app-mostrardatos></app-mostrardatos>
+            <br>
+            <br>
+            <button pButton type="button" (click)="cerrarSesion()">Cerrar Sesion</button>
         </p-tabPanel>
         <p-tabPanel [headerStyle]="{'width':'50%'}" header="CREAR USUARIO" [disabled]="!(rol=='ADMINISTRADOR')">
             <app-formusuarios></app-formusuarios>
         </p-tabPanel>
-        <button pButton type="button" (click)="cerrarSesion()" class="p-button-secondary p-button">Cerrar Sesion</button>
     </p-tabView>
 </div>
