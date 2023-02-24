@@ -1,3 +1,7 @@
+
+.container{
+    margin: 0 20%;
+}
 .content-section{
     width: 940px;
     margin: 0 auto;
@@ -30,4 +34,8 @@
 
 .p-tabview .p-tabview-nav .nav {
     width: 100%;
+}
+
+.field small{
+    color: red;
 }

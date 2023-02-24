@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Observable, from } from 'rxjs';
 import { TipoPerfil, Usuario } from 'src/model/usuario';
 
@@ -15,16 +15,23 @@ export class FormloginComponent {
 
   url="http://localhost:8080/usuarios/"
 
+  /*
+    Definicion del Formulario
+  */
   formSesion=this.form.group({
-    nombre: [""],
-    contrasena: [""]
+    nombre: ['',Validators.required],
+    contrasena: ['',Validators.required]
   });
   
+  //Variable de control del comportamiento de componentes
   sesionIniciada=false;
   rol="";
+
+  /*
+    Definicion del metodo post para realizar el login
+  */
   enviar(){
     const sesion=from(this.http.post(this.url+"login",this.formSesion.value));
-    
     sesion.subscribe(
       (response:any)=>{
         console.log(response)

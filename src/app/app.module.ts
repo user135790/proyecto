@@ -13,7 +13,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {TableModule} from 'primeng/table'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TabViewModule} from 'primeng/tabview';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import {ConfirmationService} from 'primeng/api';
 
 
 @NgModule({
@@ -35,9 +38,11 @@ import {HttpClientModule} from '@angular/common/http'
     TableModule,
     BrowserAnimationsModule,
     TabViewModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ConfirmPopupModule
   ],
-  providers: [],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,8 +25,11 @@ export class MostrardatosComponent implements OnInit{
     tipoPerfil: [""]
   })
 
+  /*
+    Definicion de la peticion para obtener todos los usuarios
+  */
   obtenerUsuarios(){
-    this.http.get(this.url+"0").subscribe(
+    this.http.get(this.url).subscribe(
       (response:any)=>{
         this.usuarios=response;
       },
@@ -36,10 +39,15 @@ export class MostrardatosComponent implements OnInit{
     );
   }  
 
+  /*
+    Definicion de la peticion para obtener todos los usuarios
+    de un mismo perfil
+  */
   buscar(){
-    this.http.get(this.url+this.formBusqueda.value.tipoPerfil).subscribe(
-      (response)=>{
-        console.log(response);
+    this.http.get(this.url+"perfil/"+this.formBusqueda.value.tipoPerfil).subscribe(
+      (response:any)=>{
+        console.log(response)
+        this.usuarios=response;
       },
       (error)=>{
         console.log(error);

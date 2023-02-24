@@ -1,11 +1,14 @@
 <div>
+    <br>
     <div>
-        <form [formGroup]="formBusqueda">
-            <button type="button" pButton pRipple label="Search"></button>
-            <p-dropdown [options]="tipoPerfil" id="float-input" formControlName="tipoPerfil" placeholder="Tipo de perfil"></p-dropdown>   
+        <form [formGroup]="formBusqueda" (submit)="buscar()">
+            <button type="submit" pButton pRipple label="Buscar"></button>
+            <p-dropdown [options]="tipoPerfil" autoWidth="false" [style]="{'width':'50%'}" id="float-input" formControlName="tipoPerfil" placeholder="Tipo de perfil"></p-dropdown>   
         </form>      
     </div>
-    <p-table [value]="usuarios" [paginator]="true" [rows]="2" [totalRecords]="100" [pageLinks]="3">
+    <br>
+    <br>
+    <p-table [value]="usuarios" [paginator]="true" [rows]="2" [totalRecords]="usuarios.length" [pageLinks]="3">
         <ng-template pTemplate="header">
             <tr>
                 <th>Usuario</th>

@@ -4,22 +4,34 @@
         <span class="p-float-label field">
             <input id="float-input" type="text" pInputText formControlName="nombre" required> 
             <label for="float-input">Nombre de usuario</label>
-        </span>
-        <span class="p-float-label password">
-            <input id="float-input" class="password" type="password" pPassword formControlName="contrasena" required> 
-            <label for="float-input">Contraseña</label>
-            <input id="float-input" class="password" type="password" pPassword placeholder="Confirmar Contraseña" required> 
+            <small *ngIf="formUsuarios.controls.nombre.invalid &&(formUsuarios.controls.nombre.dirty || formUsuarios.controls.nombre.touched)">Este campo es obligatorio</small>
         </span>
         <span class="p-float-label field">
-            <input id="float-input" type="email" pInputText formControlName="correoElectronico" required> 
-            <label for="float-input">Correo Electrónico</label>
+            <input id="input-password" type="password" pPassword formControlName="contrasena" [feedback]="false" required> 
+            <label for="input-password">Contraseña</label>
+            <small *ngIf="formUsuarios.controls.contrasena.invalid &&(formUsuarios.controls.contrasena.dirty || formUsuarios.controls.contrasena.touched)">La contraseña debe ser minimo de 8 caracteres, una mayuscula y un numero</small>
+        </span>
+        <span class="p-float-label field">
+            <input id="input-confirm-password" type="password" pPassword formControlName="confirmarContrasena" placeholder="Confirmar Contraseña" [feedback]="false" required>
+            <label for="input-confirm-password">Confirmar contraseña</label>
+            <small *ngIf="formUsuarios.controls.confirmarContrasena.invalid &&(formUsuarios.controls.confirmarContrasena.dirty || formUsuarios.controls.confirmarContrasena.touched)">La contraseña debe ser minimo de 8 caracteres, una mayuscula y un numero</small>
+        </span>
+        <span class="p-float-label field">
+            <input id="input-email" type="email" pInputText formControlName="correoElectronico" required> 
+            <label for="input-email">Correo Electrónico</label>
+            <small *ngIf="formUsuarios.controls.correoElectronico.invalid &&(formUsuarios.controls.correoElectronico.dirty || formUsuarios.controls.correoElectronico.touched)">Este campo es obligatorio y debe ser un correo válido</small>
         </span>
         <span class="p-float-label field span-perfil">
-            <p-dropdown [options]="tipoPerfil" class="perfil" id="float-input" type="" formControlName="perfil"></p-dropdown> 
-            <label for="float-input">Perfil</label>
+            <p-dropdown [options]="tipoPerfil" autoWidth="false" [style]="{'width':'100%'}" class="perfil" id="input-dropdown" placeholder="Elija el tipo de perfil" formControlName="perfil"></p-dropdown> 
+            <label for="input-dropdow">Perfil</label>
+            <small *ngIf="formUsuarios.controls.perfil.invalid &&(formUsuarios.controls.perfil.dirty || formUsuarios.controls.perfil.touched)">Este campo es obligatorio</small>
         </span>
         <span class="field">
             <button pButton type="submit" class="p-button-secondary">Enviar</button>
         </span>
+        <span class="field">
+            <small *ngIf="confirmarContrasena">Las contraseñas no coinciden</small>
+        </span>
+        
     </form>
 </div>
