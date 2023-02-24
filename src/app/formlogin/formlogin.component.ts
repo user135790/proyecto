@@ -39,6 +39,7 @@ export class FormloginComponent {
         this.rol=response.perfil;
       }
     })
+    this.formSesion.reset();
   }
 
   cerrarSesion(){

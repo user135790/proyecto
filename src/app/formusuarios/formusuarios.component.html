@@ -27,7 +27,7 @@
             <small *ngIf="formUsuarios.controls.perfil.invalid &&(formUsuarios.controls.perfil.dirty || formUsuarios.controls.perfil.touched)">Este campo es obligatorio</small>
         </span>
         <span class="field">
-            <button pButton type="submit" [disabled]="!formUsuarios.valid" class="p-button-secondary">Enviar</button>
+            <button pButton type="submit" [disabled]="!formUsuarios.valid" class="p-button-secondary">Crear</button>
         </span>
         <span class="field">
             <small *ngIf="confirmarContrasena">Las contraseñas no coinciden</small>

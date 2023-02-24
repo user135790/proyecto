@@ -37,6 +37,7 @@ export class FormusuariosComponent {
     const sesion=from(this.uService.crearUsuario(this.formUsuarios));
     if(this.formUsuarios.value.confirmarContrasena === this.formUsuarios.value.contrasena){
       this.confirmarContrasena=false;
+      this.formUsuarios.reset();
       sesion.subscribe({
         next(value) {
           console.log(value);
@@ -48,7 +49,7 @@ export class FormusuariosComponent {
     }else{
       this.confirmarContrasena=true;
     }
-    this.formUsuarios.reset();
+    
 
   }
 }
