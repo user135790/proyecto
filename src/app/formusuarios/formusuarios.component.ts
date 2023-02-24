@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { from } from 'rxjs';
 import { TipoPerfil } from 'src/model/usuario';
+import { UsuarioServiceService } from '../usuario-service.service';
 
 @Component({
   selector: 'app-formusuarios',
@@ -11,9 +12,7 @@ import { TipoPerfil } from 'src/model/usuario';
 })
 export class FormusuariosComponent {
 
-  constructor(private form:FormBuilder,private http:HttpClient){}
-
-  url="http://localhost:8080/usuarios/";
+  constructor(private form:FormBuilder,private http:HttpClient, private uService:UsuarioServiceService){}
 
   /*
     Definicion del formulario para el registro de usuarios
@@ -35,20 +34,21 @@ export class FormusuariosComponent {
     Definicion de la peticion para crear usuarios
   */
   enviar(){
-    const sesion=from(this.http.post(this.url+"create",this.formUsuarios.value));
+    const sesion=from(this.uService.crearUsuario(this.formUsuarios));
     if(this.formUsuarios.value.confirmarContrasena === this.formUsuarios.value.contrasena){
       this.confirmarContrasena=false;
-      this.http.post(this.url+"create",this.formUsuarios.value).subscribe(
-        (response)=>{
-          console.log(response);
-          this.formUsuarios.reset();
-        },
-        (error)=>{
-          console.log(error)
-        });
+      sesion.subscribe({
+        next(value) {
+          console.log(value);
+        },error(err) {
+          console.log(err);
+        },complete() {
+          console.log("operacion exitosa");
+      }});
     }else{
       this.confirmarContrasena=true;
     }
+    this.formUsuarios.reset();
 
   }
 }

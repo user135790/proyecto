@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TipoPerfil, Usuario } from 'src/model/usuario';
+import { UsuarioServiceService } from '../usuario-service.service';
 
 @Component({
   selector: 'app-mostrardatos',
@@ -11,7 +12,7 @@ import { TipoPerfil, Usuario } from 'src/model/usuario';
 export class MostrardatosComponent implements OnInit{
   
 
-  constructor(private form:FormBuilder, private http:HttpClient){}
+  constructor(private form:FormBuilder, private http:HttpClient,private uService:UsuarioServiceService){}
   ngOnInit(): void {
     this.obtenerUsuarios();
   }
@@ -29,12 +30,10 @@ export class MostrardatosComponent implements OnInit{
     Definicion de la peticion para obtener todos los usuarios
   */
   obtenerUsuarios(){
-    this.http.get(this.url).subscribe(
+    const usuarios = this.uService.obtenerUsuarios();
+    usuarios.subscribe(
       (response:any)=>{
         this.usuarios=response;
-      },
-      (error)=>{
-        console.log(error);
       }
     );
   }  
@@ -44,13 +43,9 @@ export class MostrardatosComponent implements OnInit{
     de un mismo perfil
   */
   buscar(){
-    this.http.get(this.url+"perfil/"+this.formBusqueda.value.tipoPerfil).subscribe(
+    this.uService.obtenerUsuariosPorPerfil(this.formBusqueda.value.tipoPerfil).subscribe(
       (response:any)=>{
-        console.log(response)
         this.usuarios=response;
-      },
-      (error)=>{
-        console.log(error);
       }
     );
   }

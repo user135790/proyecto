@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Observable, from } from 'rxjs';
+import { from } from 'rxjs';
 import { TipoPerfil, Usuario } from 'src/model/usuario';
+import { UsuarioServiceService } from '../usuario-service.service';
 
 @Component({
   selector: 'app-formlogin',
@@ -11,9 +12,7 @@ import { TipoPerfil, Usuario } from 'src/model/usuario';
 })
 export class FormloginComponent {
 
-  constructor(private form:FormBuilder, private http:HttpClient){}
-
-  url="http://localhost:8080/usuarios/"
+  constructor(private form:FormBuilder, private http:HttpClient, private uService:UsuarioServiceService){}
 
   /*
     Definicion del Formulario
@@ -31,14 +30,12 @@ export class FormloginComponent {
     Definicion del metodo post para realizar el login
   */
   enviar(){
-    const sesion=from(this.http.post(this.url+"login",this.formSesion.value));
-    sesion.subscribe(
-      (response:any)=>{
-        console.log(response)
-        if(response.perfil == TipoPerfil.ADMIN || response.perfil == TipoPerfil.INVITADO){
-          this.sesionIniciada=true;
-          this.rol=response.perfil
-        }
-      })
+    const enviar=from(this.uService.login(this.formSesion))
+    enviar.subscribe((response:any)=>{ 
+      if(response.perfil == TipoPerfil.ADMIN || response.perfil == TipoPerfil.INVITADO){
+        this.sesionIniciada=true;
+        this.rol=response.perfil;
+      }
+    })
   }
 }
